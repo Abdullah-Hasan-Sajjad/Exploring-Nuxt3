@@ -1,0 +1,409 @@
+/* Import Google Font - Poppins */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.cardGameBody {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: black;
+}
+
+.wrapperCardGame {
+    padding: 25px;
+    border-radius: 10px;
+    background: magenta;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.cards,
+.card,
+.view {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cards {
+    height: 400px;
+    width: 400px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.cards .card {
+    cursor: pointer;
+    list-style: none;
+    user-select: none;
+    position: relative;
+    perspective: 1000px;
+    transform-style: preserve-3d;
+    height: calc(100% / 4 - 10px);
+    width: calc(100% / 4 - 10px);
+}
+
+.card.shake {
+    animation: shake 0.35s ease-in-out;
+}
+
+@keyframes shake {
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+    20% {
+        transform: translateX(-13px);
+    }
+    40% {
+        transform: translateX(13px);
+    }
+    60% {
+        transform: translateX(-8px);
+    }
+    80% {
+        transform: translateX(8px);
+    }
+}
+
+.card .view {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    border-radius: 7px;
+    background: rgb(255, 234, 4);
+    pointer-events: none;
+    backface-visibility: hidden;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.25s linear;
+}
+
+.card .front-view img {
+    width: 19px;
+}
+
+.card .back-view img {
+    max-width: 45px;
+}
+
+.card .back-view {
+    transform: rotateY(-180deg);
+    background-color: rgb(12, 12, 12);
+}
+
+.card.flip .back-view {
+    transform: rotateY(0);
+}
+
+.card.flip .front-view {
+    transform: rotateY(180deg);
+}
+
+@media screen and (max-width: 700px) {
+    .cards {
+        height: 350px;
+        width: 350px;
+    }
+    .card .front-view img {
+        width: 17px;
+    }
+    .card .back-view img {
+        max-width: 40px;
+    }
+}
+
+@media screen and (max-width: 530px) {
+    .cards {
+        height: 300px;
+        width: 300px;
+    }
+    .card .front-view img {
+        width: 15px;
+    }
+    .card .back-view img {
+        max-width: 35px;
+    }
+}
+
+.WordGuess {
+    display: flex;
+    padding: 0 10px;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    background: #000000;
+}
+
+.wrapperWordGuess {
+    width: 430px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.wrapperWordGuess h1 {
+    font-size: 25px;
+    font-weight: 500;
+    padding: 20px 25px;
+    border-bottom: 1px solid #ccc;
+}
+
+.wrapperWordGuess .contentWordGuess {
+    margin: 25px 25px 35px;
+}
+
+.contentWordGuess .inputs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.inputs input {
+    height: 57px;
+    width: 56px;
+    margin: 4px;
+    font-size: 24px;
+    font-weight: 500;
+    color: #cf5ddb;
+    text-align: center;
+    border-radius: 5px;
+    background: none;
+    pointer-events: none;
+    text-transform: uppercase;
+    border: 1px solid #B5B5B5;
+}
+
+.typing-input {
+    opacity: 0;
+    z-index: -999;
+    position: absolute;
+    pointer-events: none;
+}
+
+.inputs input:first-child {
+    margin-left: 0px;
+}
+
+.contentWordGuess .details {
+    margin: 20px 0 25px;
+}
+
+.details p {
+    font-size: 19px;
+    margin-bottom: 10px;
+}
+
+.contentWordGuess .reset-btn {
+    width: 100%;
+    border: none;
+    cursor: pointer;
+    color: #000000;
+    outline: none;
+    padding: 15px 0;
+    font-size: 17px;
+    border-radius: 5px;
+    background: #fffb00;
+    transition: all 0.3s ease;
+}
+
+.contentWordGuess .reset-btn:hover {
+    background: #ea00ff;
+}
+
+@media screen and (max-width: 460px) {
+    .wrapperWordGuess {
+        width: 100%;
+    }
+    .wrapperWordGuess h1 {
+        font-size: 22px;
+        padding: 16px 20px;
+    }
+    .wrapperWordGuess .contentWordGuess {
+        margin: 25px 20px 35px;
+    }
+    .inputs input {
+        height: 51px;
+        width: 50px;
+        margin: 3px;
+        font-size: 22px;
+    }
+    .details p {
+        font-size: 17px;
+    }
+    .contentWordGuess .reset-btn {
+        padding: 14px 0;
+        font-size: 16px;
+    }
+}
+
+
+/* Todo List*/
+
+.TodoList {
+    padding-top: 10%;
+    font-family: Arial, sans-serif;
+    align-items: center;
+    justify-content: center;
+    background: rgb(0, 0, 0);
+}
+
+
+/* Container Styles */
+
+.containerTodoList {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+
+/* Header Styles */
+
+.headerTodoList {
+    background-color: #fffb02;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+.headerTodoList h2 {
+    color: black;
+    margin-bottom: 10px;
+}
+
+
+/* Todo List Styles */
+
+#myInputTodoList {
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px 0 0 4px;
+    width: 70%;
+}
+
+.addBtnTodoList {
+    padding: 10px;
+    font-size: 16px;
+    background: #04cdff;
+    color: white;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.addBtnTodoList:hover {
+    background: #fd09c0;
+}
+
+
+/* Todo List Item Styles */
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    position: relative;
+    padding: 12px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+    color: white;
+    border-bottom: 1px solid #ecf0f1;
+}
+
+li:hover {
+    background: #d2d7db;
+    color: #333;
+}
+
+.checked {
+    background: #fb00e2;
+    color: white;
+    text-decoration: line-through;
+}
+
+.checked::before {
+    content: '✔';
+    position: absolute;
+    left: 6px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 24px;
+    color: #ca00fd;
+}
+
+
+/* Close Button Styles */
+
+.close {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 12px;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s;
+}
+
+.close:hover {
+    background-color: #e78c3c;
+    color: white;
+}
+
+
+/*Home Page*/
+
+.HomePage {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: black;
+}
+
+.H1HomePage {
+    text-align: center;
+    color: white;
+}
+
+.card-containerHomePage {
+    display: flex;
+    justify-content: space-around;
+    width: 600px;
+    /* Adjust as needed */
+}
+
+.cardHomePage {
+    color: white;
+    width: 200px;
+    height: 50px;
+    background-color: black;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+    /* Remove underline from links */
+    transition: background-color 0.3s;
+}
+
+.cardHomePage:hover {
+    background-color: magenta;
+    /* Change background color on hover */
+}
